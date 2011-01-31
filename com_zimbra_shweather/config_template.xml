@@ -1,0 +1,5 @@
+<zimletConfig name="com_zimbra_shweather" version="1.0">
+    <global>
+        <property name="allowedDomains">weather.sh.cvut.cz</property>
+    </global>
+</zimletConfig>
