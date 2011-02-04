@@ -1,4 +1,4 @@
-<zimlet name="com_zimbra_shweather" version="1.0" description="Show temperature and humidity on SH">
+<zimlet name="com_zimbra_shweather" version="1.0" description="Show temperature and humidity from SH (weather.sh.cvut.cz)">
     <include>com_zimbra_shweather.js</include>
 	<handlerObject>com_zimbra_shweather_HandlerObject</handlerObject>
  </zimlet>
