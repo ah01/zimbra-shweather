@@ -37,17 +37,36 @@ com_zimbra_shweather_HandlerObject.prototype.constructor = com_zimbra_shweather_
         container.style.zIndex = "9000";
         
         // find help link and copy color
+        var pattern = getStylePatternElement();
+        if (pattern){
+            container.style.color = getStyle(pattern, "color");
+        } 
+        
+        // kick off logo in right corner
+        var row = document.getElementById("skin_spacing_app_row");
+        if (row) {
+            var text = getStyle(row, "backgroundImage");
+            if (text) {
+                if (text.toLowerCase().indexOf("vmwarelogo") >= 0){
+                    row.style.backgroundImage = "none";                    
+                }
+            }
+            
+        }
+        
+        return true;
+    }
+    
+    function getStylePatternElement() {
         var helpBtnTable = document.getElementById("skin_container_help");
         if (helpBtnTable){
             var a = helpBtnTable.getElementsByTagName("a");
             if(a && a.length >= 1)
             {
-                var color = getStyle(a[0], "color");
-                container.style.color = color;
+                return a[0];
             }
-        } 
-        
-        return true;
+        }
+        return null; 
     }
     
     ShWeather.prototype.loadValues = function () {
@@ -70,7 +89,7 @@ com_zimbra_shweather_HandlerObject.prototype.constructor = com_zimbra_shweather_
             var t = data[0],
                 h = data[3];
                 
-            container.innerHTML = prefix + ":&nbsp;<b>" + t + "°C</b>&nbsp;/&nbsp;<b>" + h +"%</b>"; 
+            container.innerHTML = prefix + ":&nbsp;<b>" + t + "&deg;C</b>&nbsp;/&nbsp;<b>" + h +"%</b>"; 
             
             var that = this;
             setTimeout(function () {that.loadValues();}, 150 * 1000);
