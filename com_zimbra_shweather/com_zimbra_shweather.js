@@ -7,7 +7,8 @@ com_zimbra_shweather_HandlerObject.prototype.constructor = com_zimbra_shweather_
 (function (ShWeather) {
     
     var container,
-        prefix = "SH Weather";
+        prefix = "SH Weather",
+        update = 150; // [sec]
     
     ShWeather.prototype.init = function ()
     {
@@ -91,7 +92,7 @@ com_zimbra_shweather_HandlerObject.prototype.constructor = com_zimbra_shweather_
             container.innerHTML = prefix + ":&nbsp;<b>" + t + "&deg;C</b>&nbsp;/&nbsp;<b>" + h +"%</b>"; 
             
             var that = this;
-            setTimeout(function () {that.loadValues();}, 150 * 1000);
+            setTimeout(function () {that.loadValues();}, update * 1000);
         }  
     };
     
@@ -107,7 +108,6 @@ com_zimbra_shweather_HandlerObject.prototype.constructor = com_zimbra_shweather_
         return [curleft,curtop];
     }
     
-    
     function getStyle(el, prop) {
         if (document.defaultView && document.defaultView.getComputedStyle) {
             return document.defaultView.getComputedStyle(el, null)[prop];
@@ -117,7 +117,6 @@ com_zimbra_shweather_HandlerObject.prototype.constructor = com_zimbra_shweather_
             return el.style[prop];
         }
     }
-
 
 })(com_zimbra_shweather_HandlerObject);
 
