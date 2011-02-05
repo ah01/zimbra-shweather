@@ -28,7 +28,7 @@ com_zimbra_shweather_HandlerObject.prototype.constructor = com_zimbra_shweather_
         
         container = shell.appendChild(document.createElement('div'));
         
-        container.innerHTML = "&nbsp;…";
+        container.innerHTML = "&nbsp;&hellip;";
         
         container.style.position = "absolute";
         container.style.display = "block";
@@ -51,7 +51,6 @@ com_zimbra_shweather_HandlerObject.prototype.constructor = com_zimbra_shweather_
                     row.style.backgroundImage = "none";                    
                 }
             }
-            
         }
         
         return true;
